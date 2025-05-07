@@ -1,0 +1,16 @@
+name: 'Build'
+descriptioon: 'Sets ip repostiory'
+runs:
+  using: 'composite'
+  steps:
+    - name: Check out source code
+    - uses: actions/checkout@v3
+    - name: Install Node.js
+    - uses: actions/action-setep@v2
+    - name: Set up pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install
