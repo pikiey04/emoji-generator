@@ -14,7 +14,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/build
       - name: Install Railway CLI
-        run: pnpm add --global @railway/cli
+        run: |
+          pnpm add -g @railway/cli
+          pnpm allow-scripts # <-- this lets Railway CLI complete setup
       - name: Deploy to Railway
         run: railway up --service="emoji-generator" --verbose # update this to the name of your service!
         env:
