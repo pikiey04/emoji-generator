@@ -17,6 +17,11 @@ jobs:
         run: |
           pnpm add -g @railway/cli
           pnpm approve-builds -g
+      - name: Check Railway CLI Auth
+        run: railway whoami
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+    RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
       - name: Deploy to Railway
         run: railway up --service="emoji-generator" --verbose # update this to the name of your service!
         env:
