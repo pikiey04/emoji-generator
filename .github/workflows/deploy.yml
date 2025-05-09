@@ -11,7 +11,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     env:
-      SVC_ID: 3f88f1ce-44ee-4dae-8bd3-6a963b974c40
+      SVC_ID: "3f88f1ce-44ee-4dae-8bd3-6a963b974c40"
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
     steps:
       - uses: actions/checkout@v3
