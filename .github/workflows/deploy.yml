@@ -13,8 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/build
-      - name: Install Railway CLI
-        run: npm install -g @railway/cli
+      - name: Install Railway CLI with builds approved
+         run: pnpm add -g @railway/cli
+      - name: pnpm builds approved
+         run: pnpm approve-builds -g
       - name: Link Railway Project
         run: railway link 3f88f1ce-44ee-4dae-8bd3-6a963b974c40
         env:
