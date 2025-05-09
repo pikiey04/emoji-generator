@@ -21,4 +21,4 @@ jobs:
           pnpm add -g @railway/cli
           pnpm approve-builds -g
       - name: Deploy to Railway
-        run: railway up --service=${{ env.SVC_ID }} # update this to the name of your service!
+        run: railway up --service=${{ env.SVC_ID }} --detach --verbose # update this to the name of your service!
