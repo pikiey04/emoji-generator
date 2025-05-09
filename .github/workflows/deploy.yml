@@ -10,6 +10,9 @@ jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
+    env:
+      SVC_ID: 3f88f1ce-44ee-4dae-8bd3-6a963b974c40
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/build
@@ -18,6 +21,4 @@ jobs:
           pnpm add -g @railway/cli
           pnpm approve-builds -g
       - name: Deploy to Railway
-        run: railway up --service="emoji-generator" --project="1731d95f-0880-4e29-8ad7-d8cadbbfc184"  # update this to the name of your service!
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: railway up --service=${{ env.SVC_ID }} # update this to the name of your service!
