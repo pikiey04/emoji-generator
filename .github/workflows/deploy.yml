@@ -18,6 +18,6 @@ jobs:
           pnpm add -g @railway/cli --config allow-scripts=true
           pnpm approve-builds -g
       - name: Deploy to Railway
-        run: railway up --service="emoji-generator" --verbose # update this to the name of your service!
+        run: railway up --detach --verbose # update this to the name of your service!
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
